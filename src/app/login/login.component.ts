@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(4)]],
       lastName: ['',[Validators.required, Validators.maxLength(20)]],
-      email: ['',[Validators.required, Validators.email]],
+      emailGroup: this.fb.group({
+        email: ['',[Validators.required, Validators.email]],
+        confirmEmail: ['', Validators.required],
+      }),
       phone : '',
       rating: [null, ratingRangeValidator(1, 5)],
       notification : 'email',
