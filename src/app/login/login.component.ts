@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { User } from './user';
 
 @Component({
@@ -10,15 +10,21 @@ import { User } from './user';
 export class LoginComponent implements OnInit {
 
   public user : User = new User()
+  public loginForm: FormGroup = new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    email: new FormControl(),
+    sendCatalog: new FormControl(true),
+  })
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public saveData(registerForm : NgForm) {
+  public saveData() {
     console.log("Hello");
-    console.log(registerForm.form);
-    console.log('Valeurs', JSON.stringify(registerForm.value));
+    console.log(this.loginForm);
+    console.log('Valeurs', JSON.stringify(this.loginForm.value));
     
     
   }
