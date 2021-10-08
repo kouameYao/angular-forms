@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(4)]],
       lastName: ['',[Validators.required, Validators.maxLength(20)]],
       email: ['',[Validators.required, Validators.email]],
+      phone : '',
+      notification : 'email',
       sendCatalog: false,
     })
   }
@@ -36,6 +38,17 @@ export class LoginComponent implements OnInit {
       email : 'yaojean@test.com',
       sendCatalog : true,
     })
+  }
+
+  public setNotificationSetting(method : string) : void {
+    const phoneControl = this.loginForm.get('phone');
+    if (method === 'text') {
+      phoneControl?.setValidators(Validators.required);
+    } else {
+      phoneControl?.clearValidators();
+    }
+
+    phoneControl?.updateValueAndValidity();
   }
 
 }
