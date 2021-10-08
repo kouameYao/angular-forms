@@ -59,14 +59,14 @@
                 <div class="col-md-12">
                     <div class="form-check mt-4 pt-3">
                         <label for="check" class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
+                            <input type="checkbox" name="sendCatalog" class="form-check-input" [(ngModel)]="user.sendCatalog">
                             Oui je souhaite recevoir la pub
                         </label>
                     </div>
                 </div>
             </div>
 
-            <div>
+            <div *ngIf="user.sendCatalog">
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for=""> Adresse 1</label>
@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="text-end">
-                <button class="btn btn-info" [disabled]="!firstNameVar.valid || !lastNameVar.valid || !emailVar.valid" type="submit"> Sauvegarder</button>
+                <button class="btn btn-info" [disabled]="!registerForm.valid" type="submit"> Sauvegarder</button>
             </div>
         </form>
     </div>
