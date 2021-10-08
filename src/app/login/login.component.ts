@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { User } from './user';
+
+function ratingRangeValidator(min : number, max : number) : ValidatorFn {
+
+  return (c : AbstractControl) : {[key : string] : boolean} | null => {
+    // !! => c.value !== null
+    if ((!!c.value && (isNaN(c.value)) || c.value < min || c.value > max)) {
+      return {'rangeError' : true}
+    }
+    return null
+  }
+}
 
 @Component({
   selector: 'app-login',
@@ -20,6 +31,7 @@ export class LoginComponent implements OnInit {
       lastName: ['',[Validators.required, Validators.maxLength(20)]],
       email: ['',[Validators.required, Validators.email]],
       phone : '',
+      rating: [null, ratingRangeValidator(1, 5)],
       notification : 'email',
       sendCatalog: false,
     })
