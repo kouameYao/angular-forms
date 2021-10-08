@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { User } from './user';
 
 @Component({
@@ -8,25 +8,34 @@ import { User } from './user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  constructor(private fb : FormBuilder) { }
 
+  public loginForm : any;
   public user : User = new User()
-  public loginForm: FormGroup = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl(),
-    sendCatalog: new FormControl(true),
-  })
-  constructor() { }
 
   ngOnInit(): void {
+    this.user
+    this.loginForm = this.fb.group({
+      firstName: '',
+      lastName: {value : '', disabled : true},
+      email: '',
+      sendCatalog: false,
+    })
   }
 
   public saveData() {
     console.log("Hello");
     console.log(this.loginForm);
     console.log('Valeurs', JSON.stringify(this.loginForm.value));
-    
-    
+  }
+
+  public fillFormData() : void {
+    this.loginForm.patchValue({
+      firstName : 'Yao',
+      lastName : 'Jean',
+      email : 'yaojean@test.com',
+      sendCatalog : true,
+    })
   }
 
 }
