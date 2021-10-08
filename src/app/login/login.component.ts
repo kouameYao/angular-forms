@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from './user';
 
 @Component({
@@ -10,15 +10,15 @@ import { User } from './user';
 export class LoginComponent implements OnInit {
   constructor(private fb : FormBuilder) { }
 
-  public loginForm : any;
+  public loginForm : FormGroup = new FormGroup({});
   public user : User = new User()
 
   ngOnInit(): void {
     this.user
     this.loginForm = this.fb.group({
-      firstName: '',
-      lastName: {value : '', disabled : true},
-      email: '',
+      firstName: ['', [Validators.required, Validators.minLength(4)]],
+      lastName: ['',[Validators.required, Validators.maxLength(20)]],
+      email: ['',[Validators.required, Validators.email]],
       sendCatalog: false,
     })
   }

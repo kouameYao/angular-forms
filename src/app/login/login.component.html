@@ -10,12 +10,10 @@
                     class="form-control" 
                     placeholder="nom" 
                     formControlName="firstName"
-                    required
-                    min="4"
                     [ngClass]=" {'is-invalid' : loginForm.controls.firstName.touched && !loginForm.controls.firstName.valid} ">
                     <div class="invalid-feedback">
                         <span *ngIf="loginForm.controls.firstName.errors">
-                            Entrer votre nom
+                            Assurez-vous que le nom entré vaut 4 caracteres
                         </span>
                     </div>
                 </div>
@@ -23,13 +21,11 @@
                 <div class="col-md-6 mb-3">
                     <label> Prenom </label>
                     <input type="text" class="form-control" placeholder="prenom"
-                    formControlName="lastName"
-                      required
-                      [ngClass]=" {'is-invalid' : loginForm.controls.lastName.touched && !loginForm.controls.lastName.valid} "
+                    formControlName="lastName" [ngClass]=" {'is-invalid' : loginForm.controls.lastName.touched && !loginForm.controls.lastName.valid} "
                       >
                     <div class="invalid-feedback">
                         <span *ngIf="loginForm.controls.lastName.errors">
-                            Entrer votre prenom
+                            La longueur de votre prenom doit etre compris entre 1 et 20 
                         </span>
                     </div>
                 </div>
@@ -38,8 +34,6 @@
                 <div class="col-md-6 mb-3">
                     <label> Email</label>
                     <input type="email" class="form-control" placeholder="E-mail" formControlName="email"
-                    required
-                    email
                     [ngClass]=" {'is-invalid' : loginForm.controls.email.touched && !loginForm.controls.email.valid} "
                     >
                   <div class="invalid-feedback">
@@ -47,6 +41,29 @@
                           Verifez que votre email est correcte
                       </span>
                   </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="phoneID">Telephone</label>
+                    <input type="tel" class="form-control" placeholder="Numero de tel">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="notificationID">Recevoir les notifs</label>
+                    <div class="col-mb-8">
+                        <div class="form-check form-check-inline">
+                            <label for="" class="form-check-label">
+                                <input type="radio" class="form-check-input" >
+                                E-mail
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label for="" class="form-check-label">
+                                <input type="radio" class="form-check-input" >
+                                Message texte
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
