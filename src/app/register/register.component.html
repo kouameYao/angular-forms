@@ -1,25 +1,62 @@
 <div class="card">
     <div class="card-header bg-info text-white"> S'enregistrer</div>
     <div class="card-body">
-        <form (ngSubmit)="saveData(registerForm)" #registerForm="ngForm">
+        <form class="form-check" novalidate (ngSubmit)="saveData(registerForm)" #registerForm="ngForm">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label> Nom</label>
-                    <input type="text"class="form-control" placeholder="nom" [(ngModel)]="user.firstName" name="firstName">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="nom" 
+                    [(ngModel)]="user.firstName" 
+                    name="firstName"
+                    required
+                
+                    min="4"
+                    #firstNameVar="ngModel"
+                    [ngClass]=" {'is-invalid' : firstNameVar.touched && !firstNameVar.valid} ">
+                    <div class="invalid-feedback">
+                        <span *ngIf="firstNameVar.errors">
+                            Entrer votre nom
+                        </span>
+                    </div>
                 </div>
+                
                 <div class="col-md-6 mb-3">
-                    <label> Prenom</label>
-                    <input type="text" class="form-control" placeholder="prenom" [(ngModel)]="user.lastName"  name="lastName">
+                    <label> Prenom </label>
+                    <input type="text" class="form-control" placeholder="prenom" [(ngModel)]="user.lastName"
+                      name="lastName"
+                      required
+                      #lastNameVar="ngModel"
+                      [ngClass]=" {'is-invalid' : lastNameVar.touched && !lastNameVar.valid} "
+                      >
+                    <div class="invalid-feedback">
+                        <span *ngIf="lastNameVar.errors">
+                            Entrer votre prenom
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label> Email</label>
-                    <input type="text" class="form-control" placeholder="email" [(ngModel)]="user.email" name="email">
+                    <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="user.email" name="email"
+                    required
+                    email
+                    #emailVar="ngModel"
+                    
+                    [ngClass]=" {'is-invalid' : emailVar.touched && !emailVar.valid} "
+                    >
+                  <div class="invalid-feedback">
+                      <span *ngIf="emailVar.errors">
+                          Verifez que votre email est correcte
+                      </span>
+                  </div>
                 </div>
             </div>
             <div class="text-end">
-                <button class="btn btn-info" type="submit"> Sauvegarder</button>
+                <button class="btn btn-info" [disabled]="!firstNameVar.valid || !lastNameVar.valid || !emailVar.valid" type="submit"> Sauvegarder</button>
             </div>
         </form>
     </div>
