@@ -1,3 +1,11 @@
-<p>
-  child works!
-</p>
+<div class="card mb-3">
+  <div class="card-header bg-info text-white">
+    {{ nom }}
+  </div>
+  <ng-container *ngIf="asBody" class="card-body">
+    <ng-content></ng-content>
+  </ng-container>
+  <div class="card-footer">
+    {{ preNom }}
+  </div>
+</div>

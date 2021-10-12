@@ -1,3 +1,17 @@
 <div class="container mt-5">
-  <app-login></app-login>
+  <div class="row">
+    <div class="col-md-4">
+      <app-child [nom]="nom" [preNom]="preNom"></app-child>
+    </div>
+    <div class="col-md-4">
+      <app-child [nom]="nom" [preNom]="preNom" [asBody]="asBody">
+        <div class="m-3">
+          <p>This is test on children of components</p>
+        </div>
+      </app-child>
+    </div>
+    <div class="col-md-4">
+      <app-child [nom]="nom" [preNom]="preNom"></app-child>
+    </div>
+  </div>
 </div>
