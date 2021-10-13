@@ -1,8 +1,5 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <pre>Form Status: {{ profileForm.value | json }}</pre>
-  <p>Form Status: {{ profileForm.status }}</p>
   <div>
-    <h3>General info</h3>
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" class="form-control" formControlName="firstName">
 
@@ -10,8 +7,6 @@
     <input id="last-name" type="text" class="form-control" formControlName="lastName">
     <p>Complete the form to enable button.</p>
   </div>
-
-  <hr>
 
   <div formGroupName="address">
     <h3>Address</h3>
@@ -38,8 +33,6 @@
     </div>
   </div>
 
-  <hr>
-
   <div formArrayName="aliases">
     <h3 class="mt-2">Aliases</h3>
     <button class="btn btn-info mt-2 me-2" (click)="addAlias()" type="button">+ Add another alias</button>
@@ -51,6 +44,6 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-info mt-2 me-2 mb-5" [disabled]="!profileForm.valid">Submit</button>
+  <button type="submit" class="btn btn-success mt-2 me-2 mb-5" [disabled]="!profileForm.valid">Submit</button>
   <button type="button" class="btn btn-primary mt-2 mb-5" (click)="updateProfile()">Update Profile</button>
 </form>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+
+export type EditorType = 'name' | 'profile';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,5 +27,19 @@ export class AppComponent {
 
   addItem(newItem: string) {
     this.items.push(newItem);
+  }
+
+  editor: EditorType = 'name';
+
+  get showNameEditor() {
+    return this.editor === 'name';
+  }
+
+  get showProfileEditor() {
+    return this.editor === 'profile';
+  }
+
+  toggleEditor(type: EditorType) {
+    this.editor = type;
   }
 }
