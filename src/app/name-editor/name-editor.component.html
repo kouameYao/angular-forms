@@ -1,0 +1,10 @@
+
+
+<form class="form" #heroForm="ngForm">
+  <div class="form-group">
+    <p>Value: {{ name.value }} </p>
+    <label for="name">Name: </label>
+    <input id="name" type="text" class="form-control mb-2" [formControl]="name">
+    <button (click)="updateName()" class="btn btn-secondary">Update Name</button>
+  </div>
+</form>

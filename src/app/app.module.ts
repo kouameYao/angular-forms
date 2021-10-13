@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChildComponent } from './child/child.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { NameEditorComponent } from './name-editor/name-editor.component';
 
 @NgModule({
   declarations: [	
@@ -14,7 +15,8 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     RegisterComponent,
     LoginComponent,
     ChildComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    NameEditorComponent
    ],
   imports: [
     BrowserModule,
