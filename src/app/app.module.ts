@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ChildComponent } from './child/child.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [	
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ChildComponent
+    ChildComponent,
+    HeroFormComponent
    ],
   imports: [
     BrowserModule,
