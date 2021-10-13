@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ChildComponent } from './child/child.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @NgModule({
   declarations: [	
@@ -16,7 +17,8 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
     LoginComponent,
     ChildComponent,
     HeroFormComponent,
-    NameEditorComponent
+    NameEditorComponent,
+    ProfileEditorComponent
    ],
   imports: [
     BrowserModule,
