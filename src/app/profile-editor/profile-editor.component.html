@@ -1,5 +1,6 @@
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  
+  <pre>Form Status: {{ profileForm.value | json }}</pre>
+  <p>Form Status: {{ profileForm.status }}</p>
   <div>
     <h3>General info</h3>
     <label for="first-name">First Name: </label>
