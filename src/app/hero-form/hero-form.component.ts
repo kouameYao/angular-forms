@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-hero-form',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroFormComponent implements OnInit {
 
+  powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
+  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck OverStreet');
+  submitted = false;
+  
   constructor() { }
-
+  
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    this.submitted = true;
   }
 
 }

@@ -19,7 +19,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    //FormsModule : This is used for Template Form method
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
